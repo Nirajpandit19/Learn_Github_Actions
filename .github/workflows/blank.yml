@@ -1,7 +1,7 @@
 name: Hello World
 on: workflow_dispatch
 jobs:
-  Hello:
+  hello:
     runs-on: ubuntu-20.04
     steps:
       - name: Hello Step
