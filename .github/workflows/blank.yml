@@ -1,14 +1,8 @@
 name: Hello World
-
-# Trigger options (manual)
 on: workflow_dispatch
-
-# Jobs are configured here (Runs default parallely )
 jobs:
   hello:
-    # Runner Machine
     runs-on: ubuntu-latest
-    # Steps of the job ( executes sequentially)
     steps:
       - name: Hello Step
         run: echo "Hello from github actions"
