@@ -14,11 +14,13 @@ jobs:
         run: echo "Building project....."
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Test Phase
         run: echo "Running test cases...."
   deploy:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Deploy Phase
         run: echo "Deploying the project...."
