@@ -11,4 +11,6 @@ jobs:
     # Steps of the job ( executes sequentially)
     steps:
       - name: Hello Step
-        run: echo "Hello from github actions"
+        run: |
+          echo "Multi line command example 1"
+          echo "Multi line command example 2"
