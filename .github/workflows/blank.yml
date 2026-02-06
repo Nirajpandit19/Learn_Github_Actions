@@ -3,8 +3,11 @@ name: Hello World
 # Trigger options (manual)
 on: 
   push:
+    branches:
+      - development
+      - 'release/**'
+  pull_request:
     branches: main
-
 # Jobs are configured here (Runs default parallely )
 jobs:
   build:
@@ -12,15 +15,4 @@ jobs:
     steps:
       - name: Build Phase
         run: echo "Building project....."
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Test Phase
-        run: echo "Running test cases...."
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Deploy Phase
-        run: echo "Deploying the project...."
+ 
