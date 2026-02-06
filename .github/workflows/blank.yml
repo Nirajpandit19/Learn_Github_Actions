@@ -1,16 +1,24 @@
 name: Hello World
 
 # Trigger options (manual)
-on: workflow_dispatch
+on: 
+  push:
+    branches: main
 
 # Jobs are configured here (Runs default parallely )
 jobs:
-  hello:
-    # Runner Machine
+  build:
     runs-on: ubuntu-latest
-    # Steps of the job ( executes sequentially)
     steps:
-      - name: Hello Step
-        run: |
-          echo "Multi line command example 1"
-          echo "Multi line command example 2"
+      - name: Build Phase
+        run: echo "Building project....."
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Phase
+        run: echo "Running test cases...."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Phase
+        run: echo "Deploying the project...."
