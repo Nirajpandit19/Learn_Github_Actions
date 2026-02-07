@@ -14,5 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Phase
-        run: echo "Building project....."
+        run: echo "Hello, ${{vars.MY_NAME}} how are you doing ?"
  
