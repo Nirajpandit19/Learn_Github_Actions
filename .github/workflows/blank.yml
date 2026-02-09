@@ -10,10 +10,16 @@ on:
     branches: main
 # Jobs are configured here (Runs default parallely )
 jobs:
-  build:
+  variables:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Phase
+      - name: variable phase
         run: echo "Hello, ${{vars.MY_NAME}} how are you doing..."
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: secrets phase
+        run: echo "Hello, ${{secrets.DOCKER_HUB_PASSWD}} how are you doing..."
+  
 
  
