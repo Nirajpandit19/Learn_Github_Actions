@@ -11,7 +11,7 @@ on:
 # Jobs are configured here (Runs default parallely )
 jobs:
   checkout_code:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     steps:
       - name: code checkout
         uses: actions/checkout@v4
