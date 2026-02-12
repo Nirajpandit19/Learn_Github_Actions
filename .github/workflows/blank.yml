@@ -1,23 +1,20 @@
-name: Hello World
+name: Deploy html to S3 
 
 # Trigger options (manual)
 on: 
-  push:
-    branches:
-      - development
-      - 'release/**'
   pull_request:
     branches: main
-# Jobs are configured here (Runs default parallely )
+
 jobs:
-  checkout_code:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: code checkout
+      - name: Checkout the code
         uses: actions/checkout@v4
-      - name: print index.html file
-        run: cat index.html
-
-  
-
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ap-south-1
  
