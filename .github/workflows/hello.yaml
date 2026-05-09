@@ -1,7 +1,7 @@
 name: Hello World
 
 on:
-  workflow_dispatch   # Trigger workflow manually
+  push   # Trigger workflow on push to any branch
 
 jobs: # Jobs are independent units of execution running on GitHub runners
   build:

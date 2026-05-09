@@ -107,3 +107,45 @@ Requirements:
               run: echo "Deploying the Artifact"
 
 # Running multiple jobs in a sequential mode
+    name: Hello World
+
+    on:
+      workflow_dispatch   # Trigger workflow manually
+
+    jobs: # Jobs are independent units of execution running on GitHub runners
+      build:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Building the code"
+
+      test:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: build # "needs" define here the previous declared job should be executed
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Testing the code"
+
+      deploy:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: test
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Deploying the Artifact"
+
+# Github actions workflow triggers & types
+In github actions triggers are defined using *on* keyword which determine on which action a workflow should run.
+
+Example: on:
+      workflow_dispatch   # Trigger workflow manually
+
+    Types of triggers
+    1. Event-Based Triggers
+    2. Manual Triggers
+    3. Scheduled Triggers
+    4. Workflow Triggers
+
+
+Now we'll see how we can use the push and pull_requests triggers
+
