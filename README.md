@@ -79,3 +79,31 @@ Requirements:
                 echo "Hello Step 1 command 2 getting execute"
 
 # Creating multiple jobs in a single workflow
+    name: Hello World
+
+    on:
+      workflow_dispatch   # Trigger workflow manually
+
+    jobs: # Jobs are independent units of execution running on GitHub runners
+      build:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Building the code"
+
+      test:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Testing the code"
+
+      deploy:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Deploying the Artifact"
+
+# Running multiple jobs in a sequential mode
