@@ -1,8 +1,12 @@
 name: Hello World
-on: workflow_dispach # Triggering workflow manually
+
+on:
+  workflow_dispatch   # Trigger workflow manually
+
 jobs:
-    hello:
-        runs_on: ubuntu-latest
-        steps: 
-            -name: Hello step
-             run: echo "Hello welcome to Github Actions"
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello Step
+        run: echo "Hello welcome to GitHub Actions"
