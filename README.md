@@ -45,3 +45,20 @@ Then added features for github ---
 Requirements:
     Having a github repository.
     Go to actions --> Configure
+    Inside .gihub/workflows/hello.yaml
+    
+    name: Hello World
+
+    on:
+        workflow_dispatch   # Trigger workflow manually
+
+    jobs:
+        hello:
+            runs-on: ubuntu-latest
+
+            steps:
+            - name: Hello Step
+              run: echo "Hello welcome to GitHub Actions"
+
+# Running multiple shell commands in a single step
+

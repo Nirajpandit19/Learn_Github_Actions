@@ -9,4 +9,6 @@ jobs:
 
     steps:
       - name: Hello Step
-        run: echo "Hello welcome to GitHub Actions"
+        run: |
+            echo "Hello Step 1 command 1 getting execute"
+            echo "Hello Step 1 command 2 getting execute"
