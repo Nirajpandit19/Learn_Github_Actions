@@ -5,24 +5,24 @@ on:
 
 jobs: # Jobs are independent units of execution running on GitHub runners
   build:
-    runs_on: ubuntu-latest # A virtual machine where the jobs got executed
+    runs-on: ubuntu-latest # A virtual machine where the jobs got executed
 
     steps: # steps are the individual commands or reusable actions executed within a job
-        -name: Build step
-         run: echo "Building the code"
+        - name: Build step
+          run: echo "Building the code"
 
   test:
     runs_on: ubuntu-latest # A virtual machine where the jobs got executed
 
     steps: # steps are the individual commands or reusable actions executed within a job
-        -name: Build step
-         run: echo "Testing the code"
+        - name: Build step
+          run: echo "Testing the code"
 
   deploy:
     runs_on: ubuntu-latest # A virtual machine where the jobs got executed
 
     steps: # steps are the individual commands or reusable actions executed within a job
-        -name: Build step
-         run: echo "Deploying the Artifact"
+        - name: Build step
+          run: echo "Deploying the Artifact"
 
 
