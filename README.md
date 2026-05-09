@@ -107,3 +107,120 @@ Requirements:
               run: echo "Deploying the Artifact"
 
 # Running multiple jobs in a sequential mode
+    name: Hello World
+
+    on:
+      workflow_dispatch   # Trigger workflow manually
+
+    jobs: # Jobs are independent units of execution running on GitHub runners
+      build:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Building the code"
+
+      test:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: build # "needs" define here the previous declared job should be executed
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Testing the code"
+
+      deploy:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: test
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Deploying the Artifact"
+
+# Github actions workflow triggers & types
+In github actions triggers are defined using *on* keyword which determine on which action a workflow should run.
+
+Example: on:
+      workflow_dispatch   # Trigger workflow manually
+
+    Types of triggers
+    1. Event-Based Triggers
+    2. Manual Triggers
+    3. Scheduled Triggers
+    4. Workflow Triggers
+
+
+Now we'll see how we can use the push and pull_requests triggers
+
+For Push to any branch triggers actions
+    name: Hello World
+
+    on:
+      push   # Trigger workflow on push to any branch
+
+    jobs: # Jobs are independent units of execution running on GitHub runners
+      build:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Building the code"
+
+      test:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: build
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Testing the code"
+
+      deploy:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: test
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Deploying the Artifact"
+
+For pull_requests to any branch triggers actions
+
+    name: Hello World
+
+    on:
+      pull_requests   # Trigger workflow on pull to any branch
+
+    jobs: # Jobs are independent units of execution running on GitHub runners
+      build:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Building the code"
+
+      test:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: build
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Testing the code"
+
+      deploy:
+        runs-on: ubuntu-latest # A virtual machine where the jobs got executed
+        needs: test
+        steps: # steps are the individual commands or reusable actions executed within a job
+            - name: Build step
+              run: echo "Deploying the Artifact"
+
+For both operations push and pull_requests we'll use
+
+    on: ["push", "pull_requests"]
+
+When we want to trigger a workflow on a push in a certain branch and also a pull_request in a certain branch we use this syntax:
+
+on:
+  push: # Triggers on push to development branch
+    branches:
+      - development
+
+  pull_request: # Triggers on pull_request to main branch
+    branches:
+      - main
+
+  we can also use regular expressions such as in the braches section like 'dev/**' so it will trigger the workflow push or pull+request as determined on any branches starting with the "dev" keyword 
+
+  
