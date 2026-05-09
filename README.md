@@ -62,3 +62,20 @@ Requirements:
 
 # Running multiple shell commands in a single step
 
+    Inside .gihub/workflows/hello.yaml
+    name: Hello World
+
+    on:
+      workflow_dispatch   # Trigger workflow manually
+
+    jobs:
+      hello:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Hello Step
+            run: |
+                echo "Hello Step 1 command 1 getting execute"
+                echo "Hello Step 1 command 2 getting execute"
+
+# Creating multiple jobs in a single workflow

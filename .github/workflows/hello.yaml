@@ -3,12 +3,26 @@ name: Hello World
 on:
   workflow_dispatch   # Trigger workflow manually
 
-jobs:
-  hello:
-    runs-on: ubuntu-latest
+jobs: # Jobs are independent units of execution running on GitHub runners
+  build:
+    runs_on: ubuntu-latest # A virtual machine where the jobs got executed
 
-    steps:
-      - name: Hello Step
-        run: |
-            echo "Hello Step 1 command 1 getting execute"
-            echo "Hello Step 1 command 2 getting execute"
+    steps: # steps are the individual commands or reusable actions executed within a job
+        -name: Build step
+         run: echo "Building the code"
+
+  test:
+    runs_on: ubuntu-latest # A virtual machine where the jobs got executed
+
+    steps: # steps are the individual commands or reusable actions executed within a job
+        -name: Build step
+         run: echo "Testing the code"
+
+  deploy:
+    runs_on: ubuntu-latest # A virtual machine where the jobs got executed
+
+    steps: # steps are the individual commands or reusable actions executed within a job
+        -name: Build step
+         run: echo "Deploying the Artifact"
+
+
