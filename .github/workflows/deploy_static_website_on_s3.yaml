@@ -21,6 +21,6 @@ jobs:
 
       - name: push static code to s3
         run: |
-          aws-s3 sync ./ s3://gha-static-446713282450-ap-south-1-an/ \
+          aws s3 sync ./ s3://gha-static-446713282450-ap-south-1-an/ \
           --exclude "*" \
           --include "index.html"
