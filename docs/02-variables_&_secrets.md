@@ -26,6 +26,7 @@ GitHub provides built-in variables automatically available in every workflow:
 | `$GITHUB_ACTOR` | The username of the person who triggered the workflow |
 | `$GITHUB_WORKSPACE` | The path to the checked-out repository on the runner |
 | `$RUNNER_OS` | The OS of the runner (e.g. `Linux`) |
+| `$toJson(github)`| Print the entire content of a context `github, job, or matrix`|
 
 ```yaml
 steps:
