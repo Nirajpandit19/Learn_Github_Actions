@@ -11,6 +11,9 @@ jobs:
             - name: build
               id: step1
               run: echo "version=0.0.1" >> $GITHUB_OUTPUT
+            - name: using output
+              run: echo "The artifact version is ${{ steps.step1.outputs.version }}"
+            
     deploy:
         needs: build
         runs-on: ubuntu-latest
