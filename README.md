@@ -15,7 +15,8 @@ LEARN_GITHUB_ACTIONS/
 │       ├── hello.yaml                          # Hello World workflow
 │       ├── variables_and_secrets.yaml          # Variables and secrets demo
 │       ├── actions.yaml                        # Actions (uses:) demo
-│       ├── inputs_outputs.yaml                 # Inputs and outputs demo
+│       ├── inputs.yaml                         # Inputs demo
+|       ├── outputs.yaml                        # Outputs demo 
 │       └── deploy_static_website_on_s3.yaml    # S3 + CloudFront deployment
 │
 ├── docs/
