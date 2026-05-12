@@ -3,12 +3,17 @@ name: Output demonstration
 on: workflow_dispatch
 
 jobs:
-    job-1:
+    build:
+        outputs:
+            version: ${{ steps.step1.outputs.version }}
         runs-on: ubuntu-latest
         steps:
-            - name: step 1
+            - name: build
               id: step1
               run: echo "version=0.0.1" >> $GITHUB_OUTPUT
-        
-            - name: Step 2
-              run: echo "version is ${{ steps.step1.outputs.version }}"
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy the artifact
+              run: echo "we are deploying the app with version ${{ needs.build.outputs.version }}"
