@@ -1,22 +1,22 @@
-name: Output demonstration
+# name: Output demonstration
 
-on: workflow_dispatch
+# on: workflow_dispatch
 
-jobs:
-    build:
-        outputs:
-            version: ${{ steps.step1.outputs.version }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: build
-              id: step1
-              run: echo "version=0.0.1" >> $GITHUB_OUTPUT
-            - name: using output
-              run: echo "The artifact version is ${{ steps.step1.outputs.version }}"
+# jobs:
+#     build:
+#         outputs:
+#             version: ${{ steps.step1.outputs.version }}
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: build
+#               id: step1
+#               run: echo "version=0.0.1" >> $GITHUB_OUTPUT
+#             - name: using output
+#               run: echo "The artifact version is ${{ steps.step1.outputs.version }}"
             
-    deploy:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - name: Deploy the artifact
-              run: echo "we are deploying the app with version ${{ needs.build.outputs.version }}"
+#     deploy:
+#         needs: build
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Deploy the artifact
+#               run: echo "we are deploying the app with version ${{ needs.build.outputs.version }}"
