@@ -1,4 +1,23 @@
-name: IF Demo
+# name: IF Demo
+
+# on:
+#     push:
+#         branches:
+#             - main
+
+# jobs:
+#     demo:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: run if branch is main
+#               if: github.ref == 'refs/heads/main' 
+#               run: echo "run if branch is main"
+#             - name: runs on any branch
+#               run : echo "It will be running on any branch"
+
+# Now using OR with if for checking multiple conditions at a time 
+
+name: Or Condition Demo
 
 on:
     push:
@@ -9,8 +28,7 @@ jobs:
     demo:
         runs-on: ubuntu-latest
         steps:
-            - name: run if branch is main
-              if: github.ref == 'refs/heads/main' 
-              run: echo "run if branch is main"
-            - name: runs on any branch
-              run : echo "It will be running on any branch"
+            - name: run for niraj and on the main branch
+              if: github.ref == 'refs/heads/main' || github.actor == 'Nirajpandit19' 
+              run: echo "It is triggered by either main branch or by Nirajpandit19"
+        
