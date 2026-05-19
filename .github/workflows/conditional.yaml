@@ -15,20 +15,23 @@
 #             - name: runs on any branch
 #               run : echo "It will be running on any branch"
 
-# Now using OR with if for checking multiple conditions at a time 
+# Now using OR with if for checking multiple conditions at a time at steps level
 
-name: Or Condition Demo
+# name: Or Condition Demo
 
-on:
-    push:
-        branches:
-            - main
+# on:
+#     push:
+#         branches:
+#             - main
 
-jobs:
-    demo:
-        runs-on: ubuntu-latest
-        steps:
-            - name: run for niraj and on the main branch
-              if: github.ref == 'refs/heads/main' || github.actor == 'Nirajpandit19' 
-              run: echo "It is triggered by either main branch or by Nirajpandit19"
+# jobs:
+#     demo:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: run for niraj and on the main branch
+#               if: github.ref == 'refs/heads/main' || github.actor == 'Nirajpandit19' 
+#               run: echo "It is triggered by either main branch or by Nirajpandit19"
         
+
+# One more version will be here remind
+
